@@ -1,0 +1,47 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <!-- Image Card -->
+            <div class="card mb-4 shadow">
+                <img 
+                    src="<%= foundlisting.image.url %>" 
+                    class="card-img-top"
+                    alt="Listing Image"
+                >
+
+                <div class="card-body">
+
+                    <h3 class="card-title mb-3">
+                        <%= foundlisting.title %>
+                    </h3>
+
+                    <p class="card-text">
+                        <%= foundlisting.description %>
+                    </p>
+
+                    <p class="fw-bold mb-1">
+                        ₹ <%= foundlisting.price %> / night
+                    </p>
+
+                    <p class="text-muted">
+                        <%= foundlisting.location %>, <%= foundlisting.country %>
+                    </p>
+
+                    <!-- ACTION BUTTONS -->
+                    <div class="d-flex gap-3 mt-4">
+
+                        <a 
+                            href="/listings/<%= foundlisting._id %>/edit" 
+                            class="btn btn-outline-primary"
+                        >
+                            Edit
+                        </a>
+
+                        <form 
+                            method="POST" 
+                            action="/listings/<%= foundlisting._id %>?_m
+

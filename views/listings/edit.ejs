@@ -1,0 +1,121 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="container mt-5 mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+
+      <h3 class="text-center mb-4 fw-semibold">
+        Edit Listing
+      </h3>
+
+      <form
+        method="POST"
+        action="/listings/<%= foundlisting._id %>?_method=PUT"
+        novalidate
+        class="needs-validation"
+      >
+
+        <!-- Title -->
+        <div class="mb-3">
+          <label class="form-label">Title</label>
+          <input
+            type="text"
+            name="listing[title]"
+            class="form-control"
+            value="<%= foundlisting.title %>"
+            required
+          />
+          <div class="invalid-feedback">
+            Please enter a title.
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea
+            name="listing[description]"
+            class="form-control"
+            rows="4"
+            required
+          ><%= foundlisting.description %></textarea>
+
+          <div class="invalid-feedback">
+            Please enter a description.
+          </div>
+        </div>
+
+        <!-- Image URL -->
+        <div class="mb-3">
+          <label class="form-label">Image URL</label>
+          <input
+            type="text"
+            name="listing[image]"
+            class="form-control"
+            value="<%= foundlisting.image.url %>"
+            required
+          />
+          <div class="invalid-feedback">
+            Please enter a valid image URL.
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="mb-3">
+          <label class="form-label">Price (₹)</label>
+          <input
+            type="number"
+            name="listing[price]"
+            class="form-control"
+            value="<%= foundlisting.price %>"
+            required
+          />
+          <div class="invalid-feedback">
+            Please enter a valid price.
+          </div>
+        </div>
+
+        <!-- Country -->
+        <div class="mb-3">
+          <label class="form-label">Country</label>
+          <input
+            type="text"
+            name="listing[country]"
+            class="form-control"
+            value="<%= foundlisting.country %>"
+            required
+          />
+          <div class="invalid-feedback">
+            Please enter a country.
+          </div>
+        </div>
+
+        <!-- Location -->
+        <div class="mb-4">
+          <label class="form-label">Location</label>
+          <input
+            type="text"
+            name="listing[location]"
+            class="form-control"
+            value="<%= foundlisting.location %>"
+            required
+          />
+          <div class="invalid-feedback">
+            Please enter a location.
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-danger btn-lg">
+            Update Listing
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<script src="/js/validation.js"></script>
